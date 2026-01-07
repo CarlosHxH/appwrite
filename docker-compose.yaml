@@ -64,7 +64,7 @@ x-depends-db-redis: &depends-db-redis
 
 services:
   appwrite:
-    image: 'appwrite/appwrite:1.7.4'
+    image: appwrite/appwrite:1.7.4
     ports:
       - '127.0.0.1:8989:80'
     container_name: appwrite
@@ -97,7 +97,7 @@ services:
       test: ["CMD-SHELL", "curl -fs http://localhost:80/v1/health | grep -q '\"status\":\"pass\"' || exit 1"]
 
   appwrite-console:
-    image: 'appwrite/console:6.1.28'
+    image: appwrite/console:6.1.28
     container_name: appwrite-console
     ports:
       - '127.0.0.1:8990:80'
@@ -107,7 +107,7 @@ services:
       test: ["CMD-SHELL", "curl -fsI http://localhost:80 | head -n 1 | grep -E '^HTTP/.* 3[0-9]{2}|2[0-9]{2} ' || exit 1"]
 
   appwrite-realtime:
-    image: 'appwrite/appwrite:1.7.4'
+    image: appwrite/appwrite:1.7.4
     entrypoint: realtime
     container_name: appwrite-realtime
     networks: *network
@@ -120,7 +120,7 @@ services:
       test: ["CMD-SHELL", "curl -s localhost > /dev/null || exit 1"]
 
   appwrite-worker-audits:
-    image: 'appwrite/appwrite:1.7.4'
+    image: appwrite/appwrite:1.7.4
     entrypoint: worker-audits
     container_name: appwrite-worker-audits
     networks: *network
@@ -132,7 +132,7 @@ services:
       test: ["CMD-SHELL", "ps aux | grep -q '[w]orker-audits' || exit 1"]
 
   appwrite-worker-webhooks:
-    image: 'appwrite/appwrite:1.7.4'
+    image: appwrite/appwrite:1.7.4
     entrypoint: worker-webhooks
     container_name: appwrite-worker-webhooks
     networks: *network
@@ -144,7 +144,7 @@ services:
       test: ["CMD-SHELL", "ps aux | grep -q '[w]orker-webhooks' || exit 1"]
 
   appwrite-worker-deletes:
-    image: 'appwrite/appwrite:1.7.4'
+    image: appwrite/appwrite:1.7.4
     entrypoint: worker-deletes
     container_name: appwrite-worker-deletes
     networks: *network
@@ -164,7 +164,7 @@ services:
       test: ["CMD-SHELL", "ps aux | grep -q '[w]orker-deletes' || exit 1"]
 
   appwrite-worker-databases:
-    image: 'appwrite/appwrite:1.7.4'
+    image: appwrite/appwrite:1.7.4
     entrypoint: worker-databases
     container_name: appwrite-worker-databases
     networks: *network
@@ -176,7 +176,7 @@ services:
       test: ["CMD-SHELL", "ps aux | grep -q '[w]orker-databases' || exit 1"]
 
   appwrite-worker-builds:
-    image: 'appwrite/appwrite:1.7.4'
+    image: appwrite/appwrite:1.7.4
     entrypoint: worker-builds
     container_name: appwrite-worker-builds
     networks: *network
@@ -193,7 +193,7 @@ services:
       test: ["CMD-SHELL", "ps aux | grep -q '[w]orker-builds' || exit 1"]
 
   appwrite-worker-certificates:
-    image: 'appwrite/appwrite:1.7.4'
+    image: appwrite/appwrite:1.7.4
     entrypoint: worker-certificates
     container_name: appwrite-worker-certificates
     networks: *network
@@ -209,7 +209,7 @@ services:
       test: ["CMD-SHELL", "ps aux | grep -q '[w]orker-certificates' || exit 1"]
 
   appwrite-worker-functions:
-    image: 'appwrite/appwrite:1.7.4'
+    image: appwrite/appwrite:1.7.4
     entrypoint: worker-functions
     container_name: appwrite-worker-functions
     networks: *network
@@ -225,7 +225,7 @@ services:
       test: ["CMD-SHELL", "ps aux | grep -q '[w]orker-functions' || exit 1"]
 
   appwrite-worker-mails:
-    image: 'appwrite/appwrite:1.7.4'
+    image: appwrite/appwrite:1.7.4
     entrypoint: worker-mails
     container_name: appwrite-worker-mails
     networks: *network
@@ -237,7 +237,7 @@ services:
       test: ["CMD-SHELL", "ps aux | grep -q '[w]orker-mails' || exit 1"]
 
   appwrite-worker-messaging:
-    image: 'appwrite/appwrite:1.7.4'
+    image: appwrite/appwrite:1.7.4
     entrypoint: worker-messaging
     container_name: appwrite-worker-messaging
     networks: *network
@@ -252,7 +252,7 @@ services:
       test: ["CMD-SHELL", "ps aux | grep -q '[w]orker-messaging' || exit 1"]
 
   appwrite-worker-migrations:
-    image: 'appwrite/appwrite:1.7.4'
+    image: appwrite/appwrite:1.7.4
     entrypoint: worker-migrations
     container_name: appwrite-worker-migrations
     networks: *network
@@ -264,7 +264,7 @@ services:
       <<: [*common-env, *db-env, *redis-env, *domain-env, *email-env]
 
   appwrite-task-maintenance:
-    image: 'appwrite/appwrite:1.7.4'
+    image: appwrite/appwrite:1.7.4
     entrypoint: maintenance
     container_name: appwrite-task-maintenance
     networks: *network
@@ -277,7 +277,7 @@ services:
       test: ["CMD-SHELL", "ps aux | grep -q '[m]aintenance' || exit 1"]
 
   appwrite-task-stats-resources:
-    image: 'appwrite/appwrite:1.7.4'
+    image: appwrite/appwrite:1.7.4
     container_name: appwrite-task-stats-resources
     entrypoint: stats-resources
     networks: *network
@@ -290,7 +290,7 @@ services:
       test: ["CMD-SHELL", "ps aux | grep -q '[s]tats-resources' || exit 1"]
 
   appwrite-worker-stats-resources:
-    image: 'appwrite/appwrite:1.7.4'
+    image: appwrite/appwrite:1.7.4
     entrypoint: worker-stats-resources
     container_name: appwrite-worker-stats-resources
     networks: *network
@@ -303,7 +303,7 @@ services:
       test: ["CMD-SHELL", "ps aux | grep -q '[w]orker-stats-resources' || exit 1"]
 
   appwrite-worker-stats-usage:
-    image: 'appwrite/appwrite:1.7.4'
+    image: appwrite/appwrite:1.7.4
     entrypoint: worker-stats-usage
     container_name: appwrite-worker-stats-usage
     networks: *network
@@ -317,7 +317,7 @@ services:
       test: ["CMD-SHELL", "ps aux | grep -q '[w]orker-stats-usage' || exit 1"]
 
   appwrite-task-scheduler-functions:
-    image: 'appwrite/appwrite:1.7.4'
+    image: appwrite/appwrite:1.7.4
     entrypoint: schedule-functions
     container_name: appwrite-task-scheduler-functions
     networks: *network
@@ -329,7 +329,7 @@ services:
       test: ["CMD-SHELL", "ps aux | grep -q '[s]chedule-functi' || exit 1"]
 
   appwrite-task-scheduler-executions:
-    image: 'appwrite/appwrite:1.7.4'
+    image: appwrite/appwrite:1.7.4
     entrypoint: schedule-executions
     container_name: appwrite-task-scheduler-executions
     networks: *network
@@ -341,7 +341,7 @@ services:
       test: ["CMD-SHELL", "ps aux | grep -q '[s]chedule-execut' || exit 1"]
 
   appwrite-task-scheduler-messages:
-    image: 'appwrite/appwrite:1.7.4'
+    image: appwrite/appwrite:1.7.4
     entrypoint: schedule-messages
     container_name: appwrite-task-scheduler-messages
     networks: *network
@@ -353,7 +353,7 @@ services:
       test: ["CMD-SHELL", "ps aux | grep -q '[s]chedule-messag' || exit 1"]
 
   appwrite-assistant:
-    image: 'appwrite/assistant:0.8.3'
+    image: appwrite/assistant:0.8.3
     container_name: appwrite-assistant
     networks: *network
     healthcheck:
@@ -361,7 +361,7 @@ services:
       test: ["CMD-SHELL", "wget --spider -q http://127.0.0.1:3003 || exit 0"]
 
   appwrite-browser:
-    image: 'appwrite/browser:0.2.4'
+    image: appwrite/browser:0.2.4
     container_name: appwrite-browser
     hostname: appwrite-browser
     networks: *network
@@ -379,7 +379,7 @@ services:
     container_name: openruntimes-executor
     hostname: appwrite-executor
     stop_signal: SIGINT
-    image: 'openruntimes/executor:0.8.6'
+    image: openruntimes/executor:0.8.6
     networks:
       - appwrite-network
       - runtimes-network
@@ -399,7 +399,7 @@ services:
       OPR_EXECUTOR_STORAGE_DEVICE: local
 
   appwrite-mariadb:
-    image: 'mariadb:10.11'
+    image: mariadb:10.11
     container_name: appwrite-mariadb
     networks: *network
     volumes:
@@ -422,7 +422,7 @@ services:
       retries: 5
 
   appwrite-redis:
-    image: 'redis:7.2.4-alpine'
+    image: redis:7.2.4-alpine
     container_name: appwrite-redis
     networks: *network
     command: 'redis-server --maxmemory 512mb --maxmemory-policy allkeys-lru --maxmemory-samples 5'
@@ -438,7 +438,7 @@ services:
       retries: 5
 
   cloudflared:
-    image: 'cloudflare/cloudflared:latest'
+    image: cloudflare/cloudflared:latest
     container_name: cloudflared
     restart: unless-stopped
     command: 'tunnel --no-autoupdate run --url http://nginx:443'
